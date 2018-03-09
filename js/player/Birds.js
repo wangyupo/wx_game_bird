@@ -1,5 +1,6 @@
 //小鸟类
 import {Sprite} from "../base/Sprite.js";
+import {DataStore} from "../base/DataStore.js";
 
 export class Birds extends Sprite {
     constructor() {
@@ -17,15 +18,15 @@ export class Birds extends Sprite {
         this.clippingY = [10, 10, 10];
         this.clippingWidth = [34, 34, 34];
         this.clippingHeight = [24, 24, 24];
-        this.birdX = window.innerWidth / 4;
-        this.birdsX = [this.birdX, this.birdX, this.birdX];
-        this.birdY = window.innerHeight / 2;
-        this.birdsY = [this.birdY, this.birdY, this.birdY];
-        this.birdWidth = 34;
-        this.birdsWidth = [this.birdWidth, this.birdWidth, this.birdWidth];
-        this.birdHeight = 24;
-        this.birdsHeight = [this.birdHeight, this.birdHeight, this.birdHeight];
-        this.y = [this.birdY, this.birdY, this.birdY];
+        const birdX = DataStore.getInstance().canvas.width / 4;
+        this.birdsX = [birdX, birdX, birdX];
+        const birdY = DataStore.getInstance().canvas.height / 2;
+        this.birdsY = [birdY, birdY, birdY];
+        const birdWidth = 34;
+        this.birdsWidth = [birdWidth, birdWidth, birdWidth];
+        const birdHeight = 24;
+        this.birdsHeight = [birdHeight, birdHeight, birdHeight];
+        this.y = [birdY, birdY, birdY];
         this.index = 0;
         this.count = 0;
         this.time = 0;
