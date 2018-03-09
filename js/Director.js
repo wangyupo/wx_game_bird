@@ -86,6 +86,12 @@ export class Director {
         //加分逻辑
         if (birds.birdsX[0] > pencils[0].x + pencils[0].width
         && score.isScore) {
+            //小游戏加分时震动反馈
+            // wx.vibrateShort({
+            //     success: function() {
+            //
+            //     }
+            // });
             score.isScore = false;
             score.scoreNumber++;
         }
@@ -122,6 +128,8 @@ export class Director {
             this.dataStore.get('startButton').draw();
             cancelAnimationFrame(this.dataStore.get('timer'));
             this.dataStore.destroy();
+            //触发微信小游戏垃圾回收
+            // wx.triggerGC();
         }
     }
 }
