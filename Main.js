@@ -10,7 +10,10 @@ import {Score} from "./js/player/Score.js";
 
 export class Main {
     constructor() {
+        //web
         this.canvas = document.getElementById('game_canvas');
+        //小程序
+        // this.canvas = wx.createCanvas();
         this.ctx = this.canvas.getContext('2d');
         this.dataStore = DataStore.getInstance();
         this.director = Director.getInstance();
@@ -42,21 +45,23 @@ export class Main {
     }
 
     registerEvent() {
-        // this.canvas.addEventListener('touchstart',e=>{
-        //     //屏蔽掉js的事件冒泡
-        //     e.preventDefault();
-        //     if(this.director.isGameOver){
-        //         this.init();
-        //     }else{
-        //         this.director.birdsEvent();
-        //     }
-        // });
-        wx.onTouchStart(()=>{
+        //web
+        this.canvas.addEventListener('touchstart',e=>{
+            //屏蔽掉js的事件冒泡
+            e.preventDefault();
             if(this.director.isGameOver){
                 this.init();
             }else{
                 this.director.birdsEvent();
             }
-        })
+        });
+        //小程序
+        // wx.onTouchStart(()=>{
+        //     if(this.director.isGameOver){
+        //         this.init();
+        //     }else{
+        //         this.director.birdsEvent();
+        //     }
+        // })
     }
 }
