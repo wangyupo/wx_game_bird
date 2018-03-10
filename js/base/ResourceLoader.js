@@ -5,7 +5,10 @@ export class ResourceLoader {
     constructor() {
         this.map = new Map(Resources)
         for (let [key, value] of this.map) {
+            //web
             const image = new Image();
+            //小游戏
+            // const image = wx.createImage();
             image.src = value;
             this.map.set(key, image);
         }

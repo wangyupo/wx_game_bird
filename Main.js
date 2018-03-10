@@ -12,7 +12,7 @@ export class Main {
     constructor() {
         //web
         this.canvas = document.getElementById('game_canvas');
-        //小程序
+        //小游戏
         // this.canvas = wx.createCanvas();
         this.ctx = this.canvas.getContext('2d');
         this.dataStore = DataStore.getInstance();
@@ -21,7 +21,7 @@ export class Main {
         loader.onLoaded(map => this.onResourceFirstLoaded(map));
     }
 
-    //小程序背景音乐
+    //小游戏背景音乐
     // createBackgroundMusic(){
     //     var bgm = wx.createInnerAudioContext();
     //     bgm.autoplay = true;
@@ -33,6 +33,7 @@ export class Main {
         this.dataStore.canvas = this.canvas;
         this.dataStore.ctx = this.ctx;
         this.dataStore.res = map;
+        //小游戏背景音乐
         // this.createBackgroundMusic();
         this.init();
     }
